@@ -22,7 +22,6 @@ find_package(ament_cmake_ros REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rqt_gui_cpp REQUIRED)
 find_package(Qt5Widgets REQUIRED)
-find_package(rqt_gui REQUIRED)
 find_package(qt_gui_cpp REQUIRED)
 
 # Start
