@@ -16,6 +16,8 @@ namespace rqt_plugin
     {
         widget_ = new QWidget();
         ui_.setupUi(widget_);
+
+        context.addWidget(widget_);
     }
 
     void pushButton::shutdownPlugin()
