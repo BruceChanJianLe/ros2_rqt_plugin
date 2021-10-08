@@ -1,0 +1,19 @@
+<library path="rqt_push_button">
+    <class name="rqt_plugin/pushButton" type="rqt_plugin::pushButton" base_class_type="rqt_gui_cpp::Plugin">
+      <description>
+        This repository demonstrate custom rqt plugin on ROS2.
+      </description>
+      <qtgui>
+        <group>
+          <label>Visualization</label>
+          <icon type="theme">applications-graphics</icon>
+          <!-- Reference Link -->
+          <!-- https://gist.github.com/peteristhegreat/c0ca6e1a57e5d4b9cd0bb1d7b3be1d6a -->
+          <statustip>Custom plugin.</statustip>
+        </group>
+        <label>Push Button</label>
+        <icon type="theme">image-x-generic</icon>
+        <statustip>A custom plugin in rqt ROS2.</statustip>
+      </qtgui>
+    </class>
+  </library>
