@@ -14,7 +14,7 @@
 #include <QWidget>
 
 // Custom UI
-// #include <ros2_rqt_plugin/ui_rqt_push_button.h>
+#include <ros2_rqt_plugin/ui_rqt_push_button.h>
 
 namespace rqt_plugin
 {
@@ -33,6 +33,18 @@ namespace rqt_plugin
       virtual void restoreSettings(const qt_gui_cpp::Settings& plugin_settings, const qt_gui_cpp::Settings& instance_settings);
 
       virtual ~pushButton();
+
+      private:
+        Ui::gui ui_;
+        QWidget * widget_;
+
+      protected:
+        rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr button1_pub_;
+        rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr button2_pub_;
+      
+      protected slots:
+        void button1Callback();
+        void button2Callback();
   };
 }  // namespace rqt_plugin
 
