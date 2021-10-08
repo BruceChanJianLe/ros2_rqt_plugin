@@ -8,16 +8,14 @@ namespace rqt_plugin
 {
     pushButton::pushButton()
     :   rqt_gui_cpp::Plugin()
-    {
-    }
-
-    pushButton::~pushButton()
+    ,   widget_(0)
     {
     }
 
     void pushButton::initPlugin(qt_gui_cpp::PluginContext& context)
     {
-        ;
+        widget_ = new QWidget();
+        ui_.setupUi(widget_);
     }
 
     void pushButton::shutdownPlugin()
@@ -35,4 +33,9 @@ namespace rqt_plugin
         ;
     }
 
+    pushButton::~pushButton()
+    {
+        if(widget_)
+            delete widget_;
+    }
 } // namespace rqt_plugin
