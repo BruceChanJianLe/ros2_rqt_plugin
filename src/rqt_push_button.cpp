@@ -7,6 +7,7 @@ PLUGINLIB_EXPORT_CLASS(rqt_plugin::pushButton, rqt_gui_cpp::Plugin)
 
 namespace rqt_plugin
 {
+
   PushButtonWidget::PushButtonWidget(rclcpp::Node::SharedPtr node)
     : node_{node}
   {
@@ -53,6 +54,14 @@ namespace rqt_plugin
     context.addWidget(widget_);
   }
 
+  pushButton::~pushButton()
+  {
+    if(widget_)
+    {
+      delete widget_;
+    }
+  }
+
   void pushButton::shutdownPlugin()
   {
     ;
@@ -68,11 +77,4 @@ namespace rqt_plugin
     ;
   }
 
-  pushButton::~pushButton()
-  {
-    if(widget_)
-    {
-      delete widget_;
-    }
-  }
 } // namespace rqt_plugin

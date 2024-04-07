@@ -18,6 +18,7 @@
 
 namespace rqt_plugin
 {
+
   // To use autoconnect signals and slots
   class PushButtonWidget : public QWidget
   {
@@ -55,6 +56,7 @@ namespace rqt_plugin
       Ui::gui ui_;
       PushButtonWidget *widget_;
   };
+
 }  // namespace rqt_plugin
 
 #endif  // PUSH_BUTTON_H__
