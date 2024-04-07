@@ -15,14 +15,23 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # find dependencies
-find_package(rclcpp REQUIRED)
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_ros REQUIRED)
-find_package(std_msgs REQUIRED)
-find_package(rqt_gui_cpp REQUIRED)
-find_package(Qt5Widgets REQUIRED)
-find_package(qt_gui_cpp REQUIRED)
+
+set(dependencies_pkgs
+  rclcpp
+  std_msgs
+  rqt_gui_cpp
+  Qt5Widgets
+  qt_gui_cpp
+)
+
+foreach(pkg IN LISTS dependencies_pkgs)
+  find_package(${pkg} REQUIRED)
+endforeach()
 
 # Start
 # Prepare to create rqt plugin as cpp library
