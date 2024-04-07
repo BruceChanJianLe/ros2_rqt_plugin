@@ -32,7 +32,9 @@ namespace rqt_plugin
       void on_pushButton2_clicked();
 
   private:
+      Ui::gui ui_;
       rclcpp::Node::SharedPtr node_;
+      uint16_t count_button_1_, count_button_2_;
 
   protected:
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr button1_pub_;
@@ -53,7 +55,6 @@ namespace rqt_plugin
       virtual void restoreSettings(const qt_gui_cpp::Settings& plugin_settings, const qt_gui_cpp::Settings& instance_settings) override;
 
     private:
-      Ui::gui ui_;
       PushButtonWidget *widget_;
   };
 

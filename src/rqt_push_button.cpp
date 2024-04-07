@@ -10,7 +10,12 @@ namespace rqt_plugin
 
   PushButtonWidget::PushButtonWidget(rclcpp::Node::SharedPtr node)
     : node_{node}
+    , count_button_1_{0}
+    , count_button_2_{0}
   {
+    // Extend the widget with all attributes and children from UI file
+    ui_.setupUi(this);
+
     // ROS2 related declaration
     button1_pub_ = node_->create_publisher<std_msgs::msg::Bool>("button1", 1);
     button2_pub_ = node_->create_publisher<std_msgs::msg::Bool>("button2", 1);
@@ -25,12 +30,14 @@ namespace rqt_plugin
   {
     RCLCPP_INFO_STREAM(node_->get_logger(), "Published to button1 topic!");
     button1_pub_->publish(msg_);
+    ui_.label_1->setText(QString::fromStdString({std::string{"Button 1 was clicked "} + std::to_string(++count_button_1_)}));
   }
 
   void PushButtonWidget::on_pushButton2_clicked()
   {
     RCLCPP_INFO_STREAM(node_->get_logger(), "Published to button2 topic!");
     button2_pub_->publish(msg_);
+    ui_.label_2->setText(QString::fromStdString({std::string{"Button 2 was clicked "} + std::to_string(++count_button_2_)}));
   }
 
   pushButton::pushButton()
@@ -46,9 +53,6 @@ namespace rqt_plugin
 
     // Create QWidget
     widget_ = new PushButtonWidget(node_);
-
-    // Extend the widget with all attributes and children from UI file
-    ui_.setupUi(widget_);
 
     // add widget to the user interface
     context.addWidget(widget_);
