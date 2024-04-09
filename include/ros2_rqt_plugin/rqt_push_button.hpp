@@ -26,6 +26,9 @@ namespace rqt_plugin
   public:
     explicit PushButtonWidget(rclcpp::Node::SharedPtr node);
     virtual ~PushButtonWidget();
+    /// Define your own saving and restoring method
+    void saveSettings(qt_gui_cpp::Settings& plugin_settings, qt_gui_cpp::Settings& instance_settings) const;
+    void restoreSettings(const qt_gui_cpp::Settings& plugin_settings, const qt_gui_cpp::Settings& instance_settings);
 
   private slots:
       void on_pushButton1_clicked();
