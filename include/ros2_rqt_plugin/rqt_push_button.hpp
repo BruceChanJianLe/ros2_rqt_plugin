@@ -49,10 +49,10 @@ namespace rqt_plugin
       pushButton();
       virtual ~pushButton();
 
-      virtual void initPlugin(qt_gui_cpp::PluginContext& context) override;
-      virtual void shutdownPlugin() override;
-      virtual void saveSettings(qt_gui_cpp::Settings& plugin_settings, qt_gui_cpp::Settings& instance_settings) const override;
-      virtual void restoreSettings(const qt_gui_cpp::Settings& plugin_settings, const qt_gui_cpp::Settings& instance_settings) override;
+      virtual void initPlugin(qt_gui_cpp::PluginContext& context) override; // run (1)
+      virtual void shutdownPlugin() override; // run (4)
+      virtual void saveSettings(qt_gui_cpp::Settings& plugin_settings, qt_gui_cpp::Settings& instance_settings) const override; // run (3)
+      virtual void restoreSettings(const qt_gui_cpp::Settings& plugin_settings, const qt_gui_cpp::Settings& instance_settings) override; // run (2)
 
     private:
       PushButtonWidget *widget_;

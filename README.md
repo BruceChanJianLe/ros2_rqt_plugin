@@ -8,3 +8,12 @@ If you are not familiar with qt, you may check out how to manually connect the s
 
 This example uses the auto-connect [feature](https://doc.qt.io/qt-5/designer-using-a-ui-file.html#widgets-and-dialogs-with-auto-connect) to connect the slot and signal.
 However, the downside is that you will need to pass your `node_` manually to your custom widget.
+
+## Methods Sequence
+
+```cpp
+virtual void initPlugin(qt_gui_cpp::PluginContext& context) override; // run (1)
+virtual void restoreSettings(const qt_gui_cpp::Settings& plugin_settings, const qt_gui_cpp::Settings& instance_settings) override; // run (2)
+virtual void saveSettings(qt_gui_cpp::Settings& plugin_settings, qt_gui_cpp::Settings& instance_settings) const override; // run (3)
+virtual void shutdownPlugin() override; // run (4)
+```
